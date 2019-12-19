@@ -56,7 +56,7 @@ alld = ["Понеділок", "Вівторок", "Середа", "Четвер"
 
 
 @bot.message_handler(type=['text'])
-def get_lessons_str(message, group, day):
+def get_lessons_str( group, day):
     group_lessons = lessons.get(group)
     if not group_lessons:
         return None
@@ -72,10 +72,10 @@ def get_lessons_str(message, group, day):
 
     return lesson_str
     
-    if [group, day] == message.text.split():#Вот здесь проблема с реализацией, у меня что-то не так, нужна помощь
-        bot.send_message(message.chat.id, get_lessons_str(group=a[1], day=a[2]))
-    else:
-        pass
+def lessons (message, group, day):
+    a, b, c = map(int, message.text.split())
+    if a == 'Розклад' and b in lessons.get(group) and b in lessons.get(day):
+        bot.send_message(message.chat.id, get_lessons_str(group=b, day=a))
 
 
 @bot.message_handler(commands=['start'])
