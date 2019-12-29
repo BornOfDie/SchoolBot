@@ -6,7 +6,7 @@ lessons = {
         "Понеділок": 'Фізика/nФізика/nАлгебра/nАлгебра/nУкраїнська література/nУкраїнська література/nБіологія',
         "Вівторок": 'Геометрія/nГеометрія/nБіологія/nІсторія/nУкраїнська мова/nУкраїнська мова/nІсторія/nФізкультура',
         "Середа": 'Англійська мова/nАнглійська мова/nФізика/nФізика/nАлгебра/nАлгебра/nІсторія/nКреслення/Додому',
-        "4": 'Хімія/nПочаткова військова підготовка/nАлгебра/nАлгебра/nФізика/nФізика/nДодому/Хімія',
+        "Четвер": 'Хімія/nПочаткова військова підготовка/nАлгебра/nАлгебра/nФізика/nФізика/nДодому/Хімія',
         "П'ятниця": 'Географія/nРосійська/nІнформатика/nГеометрія/nФізкультура/nФізкультура/nЗарубіжна література',
     },
     "412": {
@@ -21,18 +21,19 @@ lessons = {
 
 @bot.message_handler(commands=['start'])
 def starting_user(message):
-    bot.send_message(message.chat.id, 'Здравствуйте! Я готов вам подсказать ваше расписание. Пожалуйста, выберите '
+    bot.send_message(message.chat.id, 'Здравствуйте! Я готов подсказать ваше расписание. Пожалуйста, выберите '
                                       'необходимый вам класс из ниже предложенных.')
 
 
 @bot.message_handler(type=['text'])
 def lessons(message, group, day):
-    if message.text != '/start':
-        a, b = map(str, message.text.split())
-        if a in lessons.get(group) and b in lessons.get(day):
-            bot.send_message(message.chat.id, 'abcdefghij')
-        else:
-            bot.send_message(message.chat.id, 'ошибка')
+    if lessons.get(group) in message.text and lessons.get(day) in message.text:
+        bot.send_message(message.chat.id, 'abcdefghij')
+    else:
+        bot.send_message(message.chat.id, 'POMILKA')
 
 
 bot.polling()
+#Python C:\Users\Core i9\PycharmProjects\TelegramBot\TLGBot.py
+#lessons.get(group=a, day=b)
+#Четвер
