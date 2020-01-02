@@ -34,6 +34,5 @@ def lessons(message, group, day):
 
 
 bot.polling()
-#Python C:\Users\Core i9\PycharmProjects\TelegramBot\TLGBot.py
 #lessons.get(group=a, day=b)
 #Четвер
