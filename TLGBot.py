@@ -26,7 +26,7 @@ def starting_user(message):
 
 
 @bot.message_handler(type=['text'])
-def lessons(message, group, day):
+def lessonses(message, group, day):
     if lessons.get(group) in message.text and lessons.get(day) in message.text:
         bot.send_message(message.chat.id, 'abcdefghij')
     else:
